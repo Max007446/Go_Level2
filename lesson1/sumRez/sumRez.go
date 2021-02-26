@@ -4,6 +4,7 @@ import (
 	"fmt"
 )
 
+// sumRez return summa and b var int64
 func sumrez(a int64, b int64) int64 {
 	return a + b
 }
