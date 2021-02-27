@@ -1,11 +1,12 @@
-package main
+//Package sumRez returns summa and b var int64
+package sumRez
 
 import (
 	"fmt"
 )
 
-// sumRez return summa and b var int64
-func sumrez(a int64, b int64) int64 {
+// sumRez returns summa and b var int64
+func sumRez(a int64, b int64) int64 {
 	return a + b
 }
 func main() {
@@ -14,5 +15,5 @@ func main() {
 	fmt.Scan(&x)
 	fmt.Printf("Введите второе слагаемое для суммы \n")
 	fmt.Scan(&y)
-	fmt.Println("Сумма = ", sumrez(x, y))
+	fmt.Println("Сумма = ", sumRez(x, y))
 }
