@@ -3,6 +3,7 @@ package sumRez
 
 import (
 	"fmt"
+	"https://github.com/Max007446/Go_Level2"
 )
 
 // sumRez returns summa and b var int64
