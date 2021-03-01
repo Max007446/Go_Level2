@@ -4,7 +4,6 @@ import (
 	"fmt"
 
 	"github.com/Max007446/MyModule"
-	"github.com/Max007446/MyModule/v2"
 )
 
 func main() {
