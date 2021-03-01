@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	fmt.Println(myModule(10, 5))
+	fmt.Println(MyModule(10, 5))
 }
