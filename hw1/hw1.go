@@ -32,7 +32,8 @@ func main() {
 	}()
 	_, err = os.Open("max.go")
 	if err != nil {
-		err = New("my error")
+
+		fmt.Println(New("File not opened"))
 		panic(err)
 	}
 
