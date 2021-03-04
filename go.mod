@@ -1,3 +1,3 @@
-module Max007446/Go_level2
+module github.com/Max007446
 
 go 1.15
