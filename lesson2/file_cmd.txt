@@ -1,0 +1,3 @@
+Max@max MINGW64 /e/geekbrains/Go_Level2 (lesson2)
+$ file lesson1/stack
+lesson1/stack: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, Go BuildID=99mgGWxVK26Zc64N9Eq-/y0dfGzbZIUlDjo8TfBSP/eEu4QiIPh12ARixge1eO/Jn3Y0QPdPx9-R1WGbXCh, not stripped
