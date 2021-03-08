@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
-	"github.com/Max007446/myModule"
+	"github.com/Max007446/MyModule"
 )
 
 func main() {
-	fmt.Println(myModule.MyModule(2, 6))
+	fmt.Println(MyModule.MyModule(2, 6))
 }
