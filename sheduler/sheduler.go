@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"runtime"
 	"runtime/trace"
 	"time"
 )
 
 func main() {
-	trace.Start()
+	trace.Start(os.Stderr)
 	defer trace.Stop()
 	runtime.GOMAXPROCS(4)
 	runtime.Gosched()
