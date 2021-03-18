@@ -3,10 +3,13 @@ package main
 import (
 	"fmt"
 	"runtime"
+	"runtime/trace"
 	"time"
 )
 
 func main() {
+	trace.Start()
+	defer trace.Stop()
 	runtime.GOMAXPROCS(4)
 	runtime.Gosched()
 	start := time.Now()
