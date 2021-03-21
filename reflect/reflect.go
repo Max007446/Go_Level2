@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"reflect"
 )
 
 type str struct {
@@ -18,6 +19,15 @@ func change(in interface{}, values map[string]interface{}) interface{} {
 	_ = err
 	switch in.(type) {
 	case str:
+		ps := reflect.ValueOf(in)
+		for key, value := range values {
+			f := ps.FieldByName(key)
+			kind := reflect.ValueOf(value).Kind()
+			fmt.Println(kind, reflect.ValueOf(value))
+			if f.Kind() == kind {
+				f.Set(value.(reflect.Value))
+			}
+		}
 		return in
 	default:
 		return err
@@ -33,7 +43,7 @@ func example() {
 	values := map[string]interface{}{
 		"field1": "strokaInter",
 		"field2": 250,
-		"field3": false,
+		"field3": true,
 	}
 	fmt.Println(change(a, values))
 }
