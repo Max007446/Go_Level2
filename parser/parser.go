@@ -10,28 +10,23 @@ import (
 
 func main() {
 	var funcname = "parserfile"
-	parserNew(funcname)
+	a, err := parserNew(funcname)
+	fmt.Println("Количество вызовов асинхронных функций:", a, err)
 }
-func parserNew(fName string) {
-
+func parserNew(fName string) (a int32, err error) {
 	fset := token.NewFileSet()
 	src, err := os.Open("parserfile.go")
 	_ = err
-	f, err := parser.ParseFile(fset, fName, src, parser.Mode(token.GO))
-	//fmt.Println(f, fName)
+	f, err := parser.ParseFile(fset, fName, src, 0)
 	if err != nil {
 		panic(err)
 	}
 	ast.Inspect(f, func(n ast.Node) bool {
-		var s string
 		switch n.(type) {
 		case *ast.GoStmt:
-			s = "go"
+			a++
 		}
-		if s == "go" {
-			fmt.Printf("%s:\t%s\n", s)
-		}
-
 		return true
 	})
+	return a, err
 }

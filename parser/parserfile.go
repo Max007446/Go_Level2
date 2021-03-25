@@ -13,7 +13,10 @@ func parserfile() {
 		fmt.Println("two gorutine")
 	}()
 	go func() {
-		fmt.Println("two gorutine")
+		fmt.Println("three gorutine")
+	}()
+	go func() {
+		fmt.Println("four gorutine")
 	}()
 }
 func two() {
