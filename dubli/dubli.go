@@ -1,3 +1,14 @@
+//Package main
+//
+//walk_single однопоточный поиск дублей
+//поиск осуществляется по наименованию и размеру файла
+//walk_multi многопоточный поиск дублей
+//поиск осуществляется по наименованию и размеру файла
+//main Основная функция для запуска поиска дублей
+//Флаги при запуске :
+// --delete - удаление дублей с оставлением одного экземпляра файла
+// --multi - запуск многопоточного поиска
+// --path -  путь до верхней папки ,в которой будет осуществлен поиск дублей
 package main
 
 import (
@@ -14,6 +25,8 @@ import (
 var walked_files = make(map[string][]string)
 var walked_lock sync.Mutex
 
+//walk_single однопоточный поиск дублей
+//поиск осуществляется по наименованию и размеру файла
 func walk_single(path string) {
 	files, err := ioutil.ReadDir(path)
 	if err != nil {
@@ -30,6 +43,8 @@ func walk_single(path string) {
 	}
 }
 
+//walk_multi многопоточный поиск дублей
+//поиск осуществляется по наименованию и размеру файла
 func walk_multi(wg *sync.WaitGroup, path string) {
 	files, err := ioutil.ReadDir(path)
 	if err != nil {
@@ -49,6 +64,11 @@ func walk_multi(wg *sync.WaitGroup, path string) {
 	wg.Done()
 }
 
+//main Основная функция для запуска поиска дублей
+//Флаги при запуске :
+// --delete - удаление дублей с оставлением одного экземпляра файла
+// --multi - запуск многопоточного поиска
+// --path -  путь до верхней папки ,в которой будет осуществлен поиск дублей
 func main() {
 	var arg_delete bool
 	var arg_multi bool
