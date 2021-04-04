@@ -72,12 +72,18 @@ func walk_multi(wg *sync.WaitGroup, path string) {
 func main() {
 	var arg_delete bool
 	var arg_multi bool
+	var arg_help bool
 	var arg_path string
 	flag.BoolVar(&arg_delete, "delete", false, "delete duplicate files")
 	flag.BoolVar(&arg_multi, "multi", false, "run program in miltithreaded mode")
+	flag.BoolVar(&arg_help, "help", false, "about programm")
+	flag.BoolVar(&arg_help, "h", false, "about programm")
 	flag.StringVar(&arg_path, "path", ".", "path to found duplicate files")
 	flag.Parse()
-
+	if arg_help {
+		fmt.Println("Программа поиска дублей в директории рекурсивно")
+		return
+	}
 	time1 := time.Now()
 	if arg_multi {
 		var wg sync.WaitGroup
